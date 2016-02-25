@@ -181,3 +181,35 @@ while (i <= 20) :
         i += 1
         continue
     i += 1
+print("\n")
+
+
+###Functions, command line input, string operations
+def addNumber(fNum,lNum):
+    sumNum = fNum + lNum
+    return sumNum
+
+print(addNumber(2,6), "\n")
+
+print("What is your name?")
+name = sys.stdin.readline()
+print("Hello", name)
+
+long_string = "I'll catch you if you fall - The Floor. do not worry."
+
+print ("First 4 characters = ",long_string[0:4])
+print ("Last 5 characters = ",long_string[-5:])
+print ("All characters until last 5 characters = ",long_string[:-5])
+print ("Concatenate string with first 4 characters = ", long_string[:4] + " be there")
+print ("%c is my %s and my number %d number is %.4f" % ("A","favorite letter",1,0.17))
+
+###Capitalize only first letter of string
+print (long_string.capitalize())
+print (long_string.find("Floor")) #case sensitive
+
+print(long_string.isalpha()) #check if all alphabets
+print(long_string.isalnum()) #check if all numbers
+print(long_string.replace("Floor", "Ground"))
+print(long_string.strip()) #####################################have to check on this
+split_list=long_string.split(" ")
+print(split_list)
