@@ -31,7 +31,7 @@ print("5 // 2 = ",5//2)
 
 
 ###String operations
-quote = "\"Always remember you are unique"
+quote = "\"Always remember you are unique"  ###escape character
 multi_line_quote = ''' just
 like everyone else\"'''
 
@@ -57,11 +57,11 @@ print(grocery_list[1:3])
 other_events = ['Wash Car', 'Cash Check', 'Have breakfast']
 
 to_do_list = [grocery_list, other_events]
-print(to_do_list)
-print((to_do_list[1][1]))
+print("to_do_list",to_do_list)
+print("to_do_list[1][1]",(to_do_list[1][1]))
 
 to_do_list.append("Onions")
-print(to_do_list)
+print("Onions appended",to_do_list)
 
 grocery_list.insert(3,"Strawberries")
 print(to_do_list)
@@ -213,3 +213,14 @@ print(long_string.replace("Floor", "Ground"))
 print(long_string.strip()) #####################################have to check on this
 split_list=long_string.split(" ")
 print(split_list)
+
+
+test_file = open("test.txt", "wb")
+print(test_file.mode)  ###mode in which file is opening
+print(test_file.name)  ###file name
+test_file.write(bytes("Write me to the file\n", "UTF-8"))
+test_file.close()
+
+test_file = open("test.txt", "r+")
+text_in_file = test_file.read()
+print(text_in_file)
