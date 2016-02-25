@@ -112,3 +112,51 @@ print(super_villains.get("Pied Piper"))
 
 print(super_villains.keys())
 print(super_villains.values())
+
+
+
+
+###Conditionals, logical operators and loops
+### if else elif == != > >= <=
+
+age = 31
+
+if age > 18 :
+    print("You are old enough to drive")
+else :
+    print("You are not old enough to drive")
+
+if age>=21 :
+    print("You are old enough to drive a tractor trailer")
+elif  age>=18 :
+    print("You are old enough to drive a car")
+else :
+    print("You are not old enough")
+
+### logical operators and or not
+if((age>=1) and (age<=18)) :
+    print("You get a birthday")
+elif(age==21)or(age>=65) :
+    print("You get a birthday 2")
+elif not(age == 30) :
+    print("You don't get a birthday")
+else :
+    print("You get a birthday party yeah")
+
+###loops
+for x in range(0,10) :
+    print(x, " ", end="")
+print("\n")
+
+for y in grocery_list :
+    print(y, " ", end="")
+print("\n")
+for x in [2,4,6,8,10] :
+    print(x, " ", end="")
+print("\n")
+
+num_list = [[0,1,2],[2,3,4],[3,4,5]]
+
+for x in range(0,3) :
+    for y in range(0,3) :
+        print(num_list[x][y], " ", end="")
