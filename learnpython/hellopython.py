@@ -160,3 +160,24 @@ num_list = [[0,1,2],[2,3,4],[3,4,5]]
 for x in range(0,3) :
     for y in range(0,3) :
         print(num_list[x][y], " ", end="")
+print("\n")
+
+
+### Generate random numbers and while loop
+random_num = random.randrange(0,100)
+
+while(random_num != 15) :
+    print(random_num, " ", end="")
+    random_num = random.randrange(0,100)
+print("\n")
+
+i=0
+while (i <= 20) :
+    if(i%2 == 0) :
+        print(i, " ", end="")
+    elif(i==9) :
+        break
+    else :
+        i += 1
+        continue
+    i += 1
