@@ -84,3 +84,16 @@ print(to_do_list2)
 print(len(to_do_list2))
 print(max(to_do_list2))
 print(min(to_do_list2))
+
+
+
+###tuples
+pi_tuple = (3,1,4,1,5,9)
+
+new_tuple = list(pi_tuple)
+new_list = tuple(new_tuple)
+
+print(len(new_tuple),max(new_tuple),min(new_tuple),len(pi_tuple))
+
+
+
