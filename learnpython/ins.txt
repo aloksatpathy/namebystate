@@ -9,3 +9,10 @@ install Quandl
 setup accound at Quandl and get authkey
 
 install html5lib
+
+
+
+
+remember to use pickle
+solution with downloading a file
+solution without downloading a file
