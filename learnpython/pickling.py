@@ -59,10 +59,14 @@ fig = plt.figure()
 ax1 = plt.subplot2grid((1,1), (0,0))
 
 HPI_data = pd.read_pickle('fiddy_states3.pickle')
-benchmark = HPI_Benchmark()
+# benchmark = HPI_Benchmark()
+#
+# HPI_data.plot(ax=ax1)
+# benchmark.plot(ax=ax1, color="k", linewidth=10)
+#
+# plt.legend().remove()
+# plt.show()
 
-HPI_data.plot(ax=ax1)
-benchmark.plot(ax=ax1, color="k", linewidth=10)
-
-plt.legend().remove()
-plt.show()
+HPI_State_Correlation = HPI_data.corr()
+print(HPI_State_Correlation)
+print(HPI_State_Correlation.describe())
