@@ -112,3 +112,4 @@ print("outer join\n",merged)
 merged = pd.merge(ddff1,ddff3,on="Year", how="inner")
 merged.set_index("Year", inplace = True)
 print("inner join\n",merged)
+
