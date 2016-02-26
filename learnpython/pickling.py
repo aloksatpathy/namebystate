@@ -1,5 +1,6 @@
 import pandas as pd
 import Quandl
+import pickle
 
 ###pandas pickling
 api_key = open("quandlapikey.txt","r").read()
