@@ -1,6 +1,9 @@
 import pandas as pd
 import Quandl
 import pickle
+import matplotlib.pyplot as plt
+from matplotlib import style
+style.use("fivethirtyeight")
 
 ###pandas pickling
 api_key = open("quandlapikey.txt","r").read()
@@ -16,6 +19,7 @@ def grab_initial_state_data():
     for abbv in states:    #[1:] is to ignore the column header that is Abbreviation
         query = "FMAC/HPI_"+str(abbv)
         df = Quandl.get(query, authtoken=api_key)
+        df[df.columns[0]] = (df[df.columns[0]]-df[df.columns[0]][0]) / df[df.columns[0]][0] * 100.0
         df.columns=[str(abbv)]              #added this to ensure each column has a unique name
 
         if main_df.empty:
@@ -25,18 +29,40 @@ def grab_initial_state_data():
 
     print(main_df.head())
 
-    pickle_out = open('fiddy_states.pickle','wb')
+    pickle_out = open("fiddy_states3.pickle","wb")
     pickle.dump(main_df,pickle_out)
     pickle_out.close()
 
-# grab_initial_state_data()
+def HPI_Benchmark():
+    df = Quandl.get("FMAC/HPI_USA", authtoken=api_key)
+    df[df.columns[0]] = (df[df.columns[0]]-df[df.columns[0]][0]) / df[df.columns[0]][0] * 100.0
+    return df
 
-pickle_in = open("fiddy_states.pickle","rb")
-HPI_data = pickle.load(pickle_in)
-print(HPI_data)
+#grab_initial_state_data()
+
+# pickle_in = open("fiddy_states.pickle","rb")
+# HPI_data = pickle.load(pickle_in)
+# print(HPI_data)
 
 
-HPI_data.to_pickle("pickle.pickle")
-HPI_data2 = pd.read_pickle("pickle.pickle")
-print(HPI_data2)
+# HPI_data.to_pickle("pickle.pickle")
+# HPI_data2 = pd.read_pickle("pickle.pickle")
+# print(HPI_data2)
 
+HPI_data = pd.read_pickle("fiddy_states3.pickle")
+
+# HPI_data["TX2"]=HPI_data["TX"]*2
+# print(HPI_data[["TX","TX2"]])
+
+
+fig = plt.figure()
+ax1 = plt.subplot2grid((1,1), (0,0))
+
+HPI_data = pd.read_pickle('fiddy_states3.pickle')
+benchmark = HPI_Benchmark()
+
+HPI_data.plot(ax=ax1)
+benchmark.plot(ax=ax1, color="k", linewidth=10)
+
+plt.legend().remove()
+plt.show()
