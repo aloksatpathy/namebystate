@@ -29,3 +29,30 @@ print(np.array(df[["Visitors","Bounce_Rate"]]))
 
 df2 = pd.DataFrame(np.array(df[["Visitors","Bounce_Rate"]]))
 print(df2)
+
+
+###Pandas I/O csv
+df3=pd.read_csv(r"C:\Users\Alok Satpathy\Desktop\state\namebystate\namebystate\learnpython\testdata.csv")
+print(df3.head())
+
+df3.set_index("Date", inplace=True)
+df3.to_csv("newcsv2.csv")
+
+df4=pd.read_csv("newcsv2.csv", index_col=0)
+print(df4.head())
+
+df4.columns=["Austin HPI"]
+print(df4.head())
+df4.to_csv("newcsv3.csv")
+df4.to_csv("newcsv4.csv", header=False)
+
+df5=pd.read_csv("newcsv4.csv", names=["Date","Austin_HPI"], index_col=0)
+print(df5.head())
+
+df5.to_html("example.html")
+
+df6=pd.read_csv("newcsv4.csv", names=["Date","Austin_HPI"])
+print(df6.head())
+
+df6.rename(columns={"Austin_HPI":"77006_HPI"}, inplace=True)
+print(df6.head())

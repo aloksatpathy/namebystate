@@ -1,0 +1,6 @@
+install pip
+python -m pip install -U pip
+
+install pandas
+pip install numpy-1.11.0rc1+mkl-cp35-cp35m-win_amd64.whl
+pandas-0.18.0rc1-cp35-cp35m-win_amd64.whl
